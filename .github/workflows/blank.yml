@@ -40,3 +40,8 @@ jobs:
 
       - name: G
         uses: ./
+
+      - name: H
+        uses: ./
+        with:
+          skip-checkout: ${{ github.event_name == 'pull_request' && 1 || '' }}
