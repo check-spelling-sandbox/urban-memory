@@ -37,3 +37,6 @@ jobs:
         uses: ./
         with:
           skip-checkout: ${{ github.event_name == 'pull_request' && 0 || 1 }}
+
+      - name: G
+        uses: ./
