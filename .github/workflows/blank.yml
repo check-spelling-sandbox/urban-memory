@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: A
+        env:
+          A: ${{ github.event_name == 'pull_request' }}
+        run: |
+          echo A: ${A}
+      - name: B
+        env:
+          B: ${{ github.event_name == 'pull_request' && 1 || 0 }}
+        run: |
+          echo B: ${B}
+      - name: C
+        env:
+          C: ${{ github.event_name == 'pull_request' && 0 || 1 }}
+        run: |
+          echo C: ${C}
