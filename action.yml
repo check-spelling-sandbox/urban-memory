@@ -1,0 +1,26 @@
+name: '?'
+inputs:
+  skip-checkout:
+    description: "?"
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Surprise
+      if: ${{ inputs.skip-checkout }}
+      shell: bash
+      run: |
+        : Surprise
+
+    - name: Checkout
+      if: ${{ ! inputs.skip-checkout }}
+      shell: bash
+      run: |
+        : Checkout
+
+    - name: Skipped Checkout
+      if: ${{ !! inputs.skip-checkout }}
+      shell: bash
+      run: |
+        : Skipped Checkout
